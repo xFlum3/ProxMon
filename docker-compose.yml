@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: proxmon-backend
+    volumes:
+      - ./backend/app:/app/app
+    ports:
+      - "8000:8000"  # ← פותח את הפורט גם לרשת שלך!
+    networks:
+      - proxmon-net
+
+  frontend:
+    build:
+      context: ./proxmox-monitor-web
+      dockerfile: Dockerfile
+    container_name: proxmon-frontend
+    ports:
+      - "5173:4173"
+    networks:
+      - proxmon-net
+    depends_on:
+      - backend
+
+networks:
+  proxmon-net:
+    driver: bridge

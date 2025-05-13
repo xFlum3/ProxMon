@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary  # או pymysql אם אתה משתמש ב־MySQL
+python-jose
+python-dotenv
+passlib[bcrypt]
+requests
+colorama
