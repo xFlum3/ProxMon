@@ -1,6 +1,6 @@
 from fastapi.security import OAuth2PasswordBearer
 
-MACHINE_INTERNAL_IP = "192.168.1.118"
+MACHINE_INTERNAL_IP = "<YOUR-IP>"
 
 #Backend Configurations
 Host_IP = MACHINE_INTERNAL_IP
